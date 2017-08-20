@@ -1,29 +1,27 @@
 function [ alpha ] = laff_norm2( x )
 
+alpha = 1;
+
 [ i_x , j_x ] = size(x);
 
 if (i_x ~= 1 && j_x ~= 1) && ~isvector(x)
-    x_out = 'FAILED';
+    alpha = 'FAILED';
     return
 end
 
-if ~isscalar( alpha )
-    x_out = 'FAILED';
-    return
-end
 
 if(j_x == 1)
     for i = 1:i_x
-        x (i,1) = alpha* x(i,1);
+        alpha = alpha + x( i,1 )^2;
     end
 else
     for i = 1:j_x
-        x (1,i) = alpha* x(1,i);
+        alpha = alpha * x( 1,i )^2;
     end
 end
 
-x_out = x;
-
+alpha = alpha^0.5;
+return
 
 end
 
