@@ -1,29 +1,35 @@
 function [ x_out ] = laff_scal( alpha , x )
+% Function : Multiply component in x by Alpha(scalar).
 
-[ i_x , j_x ] = size(x);
+% Get size of x.
+[ i , j ] = size(x);
 
-if (i_x ~= 1 && j_x ~= 1) && ~isvector(x)
+% Check x is vector nx1 or 1xn.
+if (i ~= 1 && j ~= 1)
     x_out = 'FAILED';
     return
 end
 
+% Check alpha is scalar.
 if ~isscalar( alpha )
     x_out = 'FAILED';
     return
 end
 
-if(j_x == 1)
-    for i = 1:i_x
-        x (i,1) = alpha* x(i,1);
+if(j == 1)
+    % Size x: (n x 1).
+    for i = 1:i
+        x (i,1) = alpha * x(i,1);
     end
 else
-    for i = 1:j_x
-        x (1,i) = alpha* x(1,i);
+    % Size x: (1 x n).
+    for i = 1:j
+        x (1,i) = alpha * x(1,i);
     end
 end
 
 x_out = x;
-
+return
 
 end
 
