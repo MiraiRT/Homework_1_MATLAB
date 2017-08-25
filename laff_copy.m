@@ -4,7 +4,7 @@ function [ y_out ] = laff_copy( x,y )
 [ i_x , j_x ] = size ( x );
 [ i_y , j_y ] = size ( y );
 
-% Check x,y is vector nx1 or 1xn.
+% Check x,y are vector nx1 or 1xn.
 if (i_x ~= 1 && j_x ~= 1) || (i_y ~=1 && j_y ~=1)
     y_out = 'FAILED';
     return

@@ -1,27 +1,29 @@
 function [ y_out ] = laff_axpy( alpha , x ,y )
+% Function : y_out = ( alpha * x ) + y.
 
-
+% Check alpha is scalar?.
 if ~isscalar( alpha )
     y_out = 'FAILED';
     return
 end
 
+% Get size of x and y.
 [ i_x , j_x ] = size (x);
 [ i_y , j_y ] = size (y);
 
-% Only Vector n*1 or 1*n
+% Check x,y are vector nx1 or 1xn.
 if (i_x ~= 1 && j_x ~= 1) | (i_y ~=1 && j_y ~=1)
     y_out = 'FAILED';
     return
 end
 
-% Check Size of x = y
+% Check Size ( nx1 or 1xn ) of x = y.
 if (i_x * j_x ~= i_y * j_y)
     y_out = 'FAILED';
     return
 end
 
-% Start to axpy
+% Operating Method.
 if (j_x == 1)
     if (j_y == 1)
         for i = 1:i_x
