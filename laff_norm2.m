@@ -13,7 +13,7 @@ if (i ~= 1 && j ~= 1) && ~isvector(x)
 end
 
 % Operating Method
-if(j == 1)
+if j == 1
     for i = 1:i
         alpha = alpha + x( i,1 )^2;
     end
