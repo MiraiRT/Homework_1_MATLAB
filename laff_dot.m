@@ -8,7 +8,7 @@ alpha = 0;
 [ i_y , j_y ] = size ( y );
 
 % Check x,y are vector nx1 or 1xn.
-if (i_x ~= 1 && j_x ~= 1) | (i_y ~=1 && j_y ~=1)
+if (i_x ~= 1 && j_x ~= 1) || (i_y ~=1 && j_y ~=1)
     alpha = 'FAILED';
     return
 end
